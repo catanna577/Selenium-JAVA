@@ -22,7 +22,8 @@ public class WordleTest {
 
         // Navigate to the page and define the solution
         String solution = "apple";
-        navigateUrl("http://localhost:3000" + "/?test=" + solution);
+        navigateUrl("http://192.168.1.61:3000" + "/?test=" + solution);
+//        navigateUrl("http://localhost:3000" + "/?test=" + solution);
 
         // Input the 1st guess
         inputWord("fault");
@@ -37,10 +38,19 @@ public class WordleTest {
         // Input the 6th guess
         inputWord("slack");
 
-        // Verify that the pop-up window with message "Sorry, you loose" will appear
+        // I wait for 3 sec
+        iWaitForSec(3);
 
-        //*[contains(text(),'Sorry, you loose!')] - message
+        // Verify that the pop-up window will appear
         //*[contains(text(),'Sorry, you loose!')]/.. - pop-up window
+        elementWithXpathIsDisplayed("//*[contains(text(),'Sorry, you loose!')]/..");
+
+        // Pop-up window contains the following text: "Sorry, you loose!"
+        //*[contains(text(),'Sorry, you loose!')] - message
+        String text = "Sorry, you loose!";
+        elementWithXpathContainsText("//*[contains(text(),'Sorry, you loose!')]", text);
+//        System.out.println(elementWithXpath("//*[contains(text(),'Sorry, you loose!')]").getText());
+
     }
 
     @AfterTest

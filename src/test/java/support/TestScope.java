@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.OptionalDataException;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class TestScope {
 
     private static WebDriver driver = null;
@@ -56,6 +58,30 @@ public class TestScope {
         }
 
         elementWithXpath("//body").sendKeys(Keys.RETURN);
+
+    }
+
+    public static void iWaitForSec(int time) throws InterruptedException {
+
+        Thread.sleep(time*1000);
+
+    }
+
+    public static void elementWithXpathIsDisplayed(String xpath) {
+
+        assertThat(elementWithXpath(xpath).isDisplayed()).isTrue();
+
+    }
+
+    public static void elementWithXpathIsNotDisplayed(String xpath) {
+
+        assertThat(elementWithXpath(xpath).isDisplayed()).isFalse();
+
+    }
+
+    public static void elementWithXpathContainsText(String xpath, String message) {
+
+        assertThat(elementWithXpath(xpath).getText()).containsIgnoringCase(message);
 
     }
 
