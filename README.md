@@ -1,4 +1,4 @@
-# Selenium-JAVA
+## Selenium-JAVA
 
 Selenium with Java Automation Framework 
 
@@ -14,3 +14,7 @@ Selenium with Java Automation Framework
 - Open src/test/samples
 - Double-click on WordleTest.java
 - Right-click inside of WordleTest.java and ‘Run WordleTest’
+
+### Exercises
+- Outline a testing strategy for testing this application (Wordle - Test Outline.pdf)
+- Manual TCs (TC_Wordle.xlsx)
